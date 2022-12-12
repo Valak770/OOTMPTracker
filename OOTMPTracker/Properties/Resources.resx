@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Blue_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\blue_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Green_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\green_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grey_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\grey_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT3D_Large_Magic_Jar_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot3d_large_magic_jar_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Fire_Medallion_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_fire_medallion_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Forest_Medallion_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_forest_medallion_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Gerudo_Token_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_gerudo_token_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Heart_Container_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_heart_container_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Light_Medallion_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_light_medallion_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Piece_of_Heart_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_piece_of_heart_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Shadow_Medallion_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_shadow_medallion_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Spiritual_Stone_of_Fire_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_spiritual_stone_of_fire_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Spiritual_Stone_of_the_Forest_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_spiritual_stone_of_the_forest_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Spiritual_Stone_of_Water_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_spiritual_stone_of_water_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Spirit_Medallion_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_spirit_medallion_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Stone_of_Agony_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_stone_of_agony_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Token_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_token_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OoT_Water_Medallion_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\oot_water_medallion_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Orange_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\orange_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Purple_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\purple_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Red_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\red_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SS_Triforce_Piece_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\ss_triforce_piece_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile004" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile004.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile005" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile005.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile006" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile006.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile007" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile007.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile008" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile008.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile009" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile009.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile010" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile010.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile012" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile012.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile013" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile013.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile014" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile014.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile015.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile016" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile016.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile017" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile017.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile018" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile018.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile019" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile019.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile020" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile020.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile022.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile023" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile023.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile025" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile025.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile026" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile026.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile027" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile027.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile028" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile028.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile029" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile029.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile031" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile031.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile032" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile032.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile033" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile033.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile034" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile034.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile035" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile035.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile036" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile036.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile037" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile037.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile038" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile038.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile039" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile039.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile040" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile040.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile044" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile044.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile045" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile045.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile046" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile046.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile047" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile047.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile048" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile048.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile049" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile049.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile051" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile051.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile052" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile052.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile053" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile053.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile054" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile054.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile055" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile055.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile056" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile056.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile057" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile057.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile058" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile058.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile059" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile059.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile060" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile060.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile061" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile061.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile062" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile062.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile063" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile063.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile064" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile064.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile065" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile065.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile066" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile066.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile067" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile067.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile068" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile068.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile069" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile069.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile070" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile070.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile071" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile071.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile072" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile072.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile073" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile073.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile074" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile074.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile075" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile075.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile076" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile076.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile077" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile077.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile078" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile078.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile079" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile079.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile080" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile080.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile081" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile081.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile082" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile082.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile083" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile083.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile084" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile084.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile085" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile085.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile086" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile086.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile087" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile087.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile088" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile088.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile089" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile089.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile091" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile091.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile092" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile092.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile093" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile093.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile094" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile094.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tile095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\tile095.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Yellow_Note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\sprites\yellow_note.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
