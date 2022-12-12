@@ -226,7 +226,6 @@ namespace OOTMPTracker
                 case "Hookshot":
                     if(num == 1)
                     {
-
                         count.Text = "H";
                     }
                     else
@@ -238,17 +237,28 @@ namespace OOTMPTracker
                 case "Wallet Upgrade":
                     switch (num)
                     {
-
-                        case 200:
+                        case 2:
+                            this.num = 200;
                             inc = 101;
+                            count.Text = this.num.ToString();
                             break;
 
-                        case 500:
+                        case 3:
+                            this.num = 500;
                             inc = 300;
+                            count.Text = this.num.ToString();
+                            break;
+
+                        case 4:
+                            this.num = 999;
+                            inc = 499;
+                            count.Text = this.num.ToString();
                             break;
 
                         default:
+                            this.num = 99;
                             inc = 0;
+                            count.Text = this.num.ToString();
                             break;
                     }
                     break;

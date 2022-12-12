@@ -1,5 +1,4 @@
 using SuperSimpleTcp;
-using System.Diagnostics;
 using System.Text;
 
 namespace OOTMPTracker
@@ -769,10 +768,35 @@ namespace OOTMPTracker
             foreach (Item item in items.Values)
             {
                 data[i] = Convert.ToByte(item.obtained);
-                if (item.progressive)
+                if (item.progressive && !item.name.Equals("Wallet Upgrade"))
                 {
                     ProgressiveItem pItem = (ProgressiveItem)item;
                     data[i + items.Count] = Convert.ToByte(pItem.num);
+                    data[i + (items.Count * 2)] = Convert.ToByte(pItem.loc);
+                }
+                else if(item.name.Equals("Wallet Upgrade"))
+                {
+                    ProgressiveItem pItem = (ProgressiveItem)item;
+                    int num = 1;
+                    switch (pItem.num)
+                    {
+                        case 99:
+                            num = 1;
+                            break;
+
+                        case 200:
+                            num = 2;
+                            break;
+
+                        case 500:
+                            num = 3;
+                            break;
+
+                        case 999:
+                            num = 4;
+                            break;
+                    }
+                    data[i + items.Count] = Convert.ToByte(num);
                     data[i + (items.Count * 2)] = Convert.ToByte(pItem.loc);
                 }
                 else
