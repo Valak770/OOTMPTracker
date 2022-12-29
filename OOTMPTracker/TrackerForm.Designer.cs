@@ -114,6 +114,7 @@
             this.alertText = new System.Windows.Forms.Label();
             this.heartPieceCount = new System.Windows.Forms.Label();
             this.heartCount = new System.Windows.Forms.Label();
+            this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sticksImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nutsImg)).BeginInit();
@@ -188,7 +189,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
-            this.syncToolStripMenuItem});
+            this.syncToolStripMenuItem,
+            this.playersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(392, 24);
@@ -1203,6 +1205,13 @@
             this.heartCount.TabIndex = 134;
             this.heartCount.Text = "1";
             // 
+            // playersToolStripMenuItem
+            // 
+            this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
+            this.playersToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.playersToolStripMenuItem.Text = "Players";
+            this.playersToolStripMenuItem.Click += new System.EventHandler(this.playersToolStripMenuItem_Click);
+            // 
             // TrackerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1459,5 +1468,6 @@
         private ToolStripMenuItem syncToolStripMenuItem;
         private Label heartPieceCount;
         private Label heartCount;
+        private ToolStripMenuItem playersToolStripMenuItem;
     }
 }

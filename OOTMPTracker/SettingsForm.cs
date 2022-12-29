@@ -16,6 +16,7 @@ namespace OOTMPTracker
         public String name { get; private set; }
         public String ip { get; private set; }
         public String port { get; private set; }
+        public String connections { get; private set; }
         public SettingsForm()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace OOTMPTracker
             name = nameInput.Text;
             ip = ipInput.Text;
             port = portInput.Text;
+            connections = connectionsInput.Text;
             this.Hide();
         }
 

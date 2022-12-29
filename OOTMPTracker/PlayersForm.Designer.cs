@@ -47,6 +47,7 @@
             // playerListText
             // 
             this.playerListText.BackColor = System.Drawing.Color.Black;
+            this.playerListText.ForeColor = System.Drawing.Color.White;
             this.playerListText.Location = new System.Drawing.Point(12, 40);
             this.playerListText.Multiline = true;
             this.playerListText.Name = "playerListText";
@@ -76,6 +77,7 @@
             this.Controls.Add(this.playersTitle);
             this.Name = "PlayersForm";
             this.Text = "Player List";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlayersForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

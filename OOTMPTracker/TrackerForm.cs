@@ -7,11 +7,11 @@ namespace OOTMPTracker
     {
         public static String name;
         public static String ip;
-        private String targetIp;
         public static String mode;
         public static Dictionary<String, Item> items = new Dictionary<string, Item>();
         private bool multiplayer = false;
         private SettingsForm settingsForm;
+        private PlayersForm playersForm;
         private SimpleTcpServer server;
         private SimpleTcpClient client;
         private bool fullSync = false;
@@ -101,6 +101,7 @@ namespace OOTMPTracker
         private void TrackerForm_Load(object sender, EventArgs e)
         {
             syncToolStripMenuItem.Enabled = false;
+            playersToolStripMenuItem.Enabled = false;
             settingsForm = new SettingsForm();
 
             sticks = new ProgressiveItem("Deku Stick Upgrade", true, sticksImg, 10, 30, 10, stickCount);
@@ -189,7 +190,10 @@ namespace OOTMPTracker
                     alertText.Text = name + " found a " + item.name;
                     if (mode.Equals("host"))
                     {
-                        server.Send(targetIp, name + "," + item.name + "," + "true" + "," + "true");
+                        foreach(String clientIp in playersForm.players.Keys)
+                        {
+                            server.Send(clientIp, name + "," + item.name + "," + "true" + "," + "true");
+                        }
                     }
                     else
                     {
@@ -201,7 +205,10 @@ namespace OOTMPTracker
                     alertText.Text = name + " found the " + item.name;
                     if (mode.Equals("host"))
                     {
-                        server.Send(targetIp, name + "," + item.name + "," + "true" + "," + "false");
+                        foreach (String clientIp in playersForm.players.Keys)
+                        {
+                            server.Send(clientIp, name + "," + item.name + "," + "true" + "," + "false");
+                        }
                     }
                     else
                     {
@@ -218,7 +225,10 @@ namespace OOTMPTracker
                     alertText.Text = name + " removed a " + item.name;
                     if (mode.Equals("host"))
                     {
-                        server.Send(targetIp, name + "," + item.name + "," + "false" + "," + "true");
+                        foreach (String clientIp in playersForm.players.Keys)
+                        {
+                            server.Send(clientIp, name + "," + item.name + "," + "false" + "," + "true");
+                        }
                     }
                     else
                     {
@@ -230,7 +240,10 @@ namespace OOTMPTracker
                     alertText.Text = name + " removed a " + item.name;
                     if (mode.Equals("host"))
                     {
-                        server.Send(targetIp, name + "," + item.name + "," + "false" + "," + "false");
+                        foreach (String clientIp in playersForm.players.Keys)
+                        {
+                            server.Send(clientIp, name + "," + item.name + "," + "false" + "," + "false");
+                        }
                     }
                     else
                     {
@@ -628,17 +641,44 @@ namespace OOTMPTracker
                         server = new SimpleTcpServer(ip);
                         server.Events.ClientConnected += Events_ClientConnected;
                         server.Events.ClientDisconnected += Events_ClientDisconnected;
-                        server.Events.DataReceived += Events_DataReceived;
+                        server.Events.DataReceived += Events_HostDataReceived;
                         server.Keepalive.EnableTcpKeepAlives = true;
                         server.Keepalive.TcpKeepAliveRetryCount = 5;
-                        server.Settings.MaxConnections = 1;
                         try
                         {
+                            server.Settings.MaxConnections = Int16.Parse(settingsForm.connections);
+                            playersForm = new PlayersForm(name, ip, server.Settings.MaxConnections);
+                            playersToolStripMenuItem.Enabled = true;
                             server.Start();
+                        }
+                        catch (ArgumentException)
+                        {
+                            syncToolStripMenuItem.Enabled = false;
+                            playersToolStripMenuItem.Enabled = false;
+                            multiplayer = false;
+                            MessageBox.Show("Player number invalid");
+                            alertText.Text = "";
+                        }
+                        catch (FormatException)
+                        {
+                            syncToolStripMenuItem.Enabled = false;
+                            playersToolStripMenuItem.Enabled = false;
+                            multiplayer = false;
+                            MessageBox.Show("Player number invalid");
+                            alertText.Text = "";
+                        }
+                        catch (OverflowException)
+                        {
+                            syncToolStripMenuItem.Enabled = false;
+                            playersToolStripMenuItem.Enabled = false;
+                            multiplayer = false;
+                            MessageBox.Show("Player number invalid");
+                            alertText.Text = "";
                         }
                         catch (TimeoutException)
                         {
                             syncToolStripMenuItem.Enabled = false;
+                            playersToolStripMenuItem.Enabled = false;
                             multiplayer = false;
                             MessageBox.Show("Other player disconnected");
                             alertText.Text = "";
@@ -647,7 +687,7 @@ namespace OOTMPTracker
                     else
                     {
                         client = new SimpleTcpClient(ip);
-                        client.Events.DataReceived += Events_DataReceived;
+                        client.Events.DataReceived += Events_ClientDataReceived;
                         client.Events.Disconnected += Events_Disconnected;
                         client.Events.Connected += Events_Connected;
                         try
@@ -686,8 +726,6 @@ namespace OOTMPTracker
 
         private void Events_ClientConnected(object sender, ConnectionEventArgs e)
         {
-            targetIp = e.IpPort;
-            MessageBox.Show("Client Connected");
             this.Invoke((MethodInvoker)delegate
             {
                 syncToolStripMenuItem.Enabled = true;
@@ -697,20 +735,28 @@ namespace OOTMPTracker
 
         private void Events_Connected(object sender, ConnectionEventArgs e)
         {
-            MessageBox.Show("Connected");
             syncToolStripMenuItem.Enabled = true;
             multiplayer = true;
+            client.Send(name);
+            MessageBox.Show("Connected to host");
         }
 
         private void Events_ClientDisconnected(object sender, ConnectionEventArgs e)
         {
+            String tempName = "";
             this.Invoke((MethodInvoker)delegate
             {
                 syncToolStripMenuItem.Enabled = false;
-                multiplayer = false;
-                MessageBox.Show("Other player disconnected");
+                if(playersForm.players.Count <= 1)
+                {
+                    multiplayer = false;
+                }
                 alertText.Text = "";
+                tempName = playersForm.players[e.IpPort];
+                playersForm.players.Remove(e.IpPort);
+                playersForm.updateList();
             });
+            MessageBox.Show(tempName + " disconnected");
         }
 
         private void Events_Disconnected(object sender, ConnectionEventArgs e)
@@ -719,14 +765,74 @@ namespace OOTMPTracker
             {
                 syncToolStripMenuItem.Enabled = false;
                 multiplayer = false;
-                MessageBox.Show("Disconnected from other player");
                 alertText.Text = "";
                 client = null;
                 mode = "";
             });
+            MessageBox.Show("Disconnected from host");
         }
 
-        private void Events_DataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
+        private void Events_HostDataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
+        {
+            List<String> tempIps = new List<String>();
+            foreach (String s in playersForm.players.Keys)
+            {
+                if (!s.Equals(ip) && !s.Equals(e.IpPort)){
+                    tempIps.Add(s);
+                }
+            }
+
+            if (fullSync)
+            {
+                byte[] data = e.Data.ToArray();
+                for (int i = 0; i < items.Count; i++)
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        Item item = items.ElementAt(i).Value;
+                        item.set(item.name, Convert.ToBoolean(data[i]), Convert.ToInt16(data[i + items.Count]), Convert.ToInt16(data[i + (items.Count * 2)]));
+                    });
+                }
+                fullSync = false;
+                foreach (String s in tempIps)
+                {
+                    server.Send(s, "SYNCING ALL ITEMS");
+                }
+                System.Threading.Thread.Sleep(1000);
+                foreach (String s in tempIps)
+                {
+                    server.Send(s, data);
+                }
+            }
+            else
+            {
+                String data = Encoding.UTF8.GetString(e.Data);
+
+                if (data.Equals("SYNCING ALL ITEMS"))
+                {
+                    fullSync = true;
+                }
+                else if (data.Split(",").Length == 1)
+                {
+                    playersForm.players.Add(e.IpPort, data);
+                    playersForm.updateList();
+                    MessageBox.Show(data + " connected");
+                }
+                else
+                {
+                    String[] splitData = data.Split(",");
+                    String username = splitData[0];
+                    bool add = Convert.ToBoolean(splitData[2]);
+                    bool progressive = Convert.ToBoolean(splitData[3]);
+                    sync(username, items[splitData[1]], add);
+                    foreach(String s in tempIps){
+                        server.Send(s, data);
+                    }
+                }
+            }
+        }
+
+        private void Events_ClientDataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
         {
             if (fullSync)
             {
@@ -749,7 +855,6 @@ namespace OOTMPTracker
                 {
                     fullSync = true;
                 }
-
                 else
                 {
                     String[] splitData = data.Split(",");
@@ -808,9 +913,15 @@ namespace OOTMPTracker
             }
             if (mode.Equals("host"))
             {
-                server.Send(targetIp, "SYNCING ALL ITEMS");
+                foreach (String clientIp in playersForm.players.Keys)
+                {
+                    server.Send(clientIp, "SYNCING ALL ITEMS");
+                }
                 System.Threading.Thread.Sleep(1000);
-                server.Send(targetIp, data);
+                foreach (String clientIp in playersForm.players.Keys)
+                {
+                    server.Send(clientIp, data);
+                }
             }
             else
             {
@@ -818,6 +929,12 @@ namespace OOTMPTracker
                 System.Threading.Thread.Sleep(1000);
                 client.Send(data);
             }
+        }
+
+        private void playersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            playersForm.updateList();
+            playersForm.Show();
         }
     }
 }

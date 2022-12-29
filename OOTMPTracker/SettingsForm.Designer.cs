@@ -37,6 +37,8 @@
             this.hostButton = new System.Windows.Forms.Button();
             this.joinButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.connectionsInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -120,11 +122,29 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(159, 15);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Max # of Connecting Players";
+            // 
+            // connectionsInput
+            // 
+            this.connectionsInput.Location = new System.Drawing.Point(167, 122);
+            this.connectionsInput.Name = "connectionsInput";
+            this.connectionsInput.Size = new System.Drawing.Size(21, 23);
+            this.connectionsInput.TabIndex = 10;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(210, 259);
+            this.Controls.Add(this.connectionsInput);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.joinButton);
             this.Controls.Add(this.hostButton);
@@ -153,5 +173,7 @@
         private Button hostButton;
         private Button joinButton;
         private Button cancelButton;
+        private Label label4;
+        private TextBox connectionsInput;
     }
 }
