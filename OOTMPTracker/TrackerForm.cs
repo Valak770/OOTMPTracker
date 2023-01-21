@@ -1,3 +1,7 @@
+//Author: Valak770
+//Description: The program's main form. Allows the user to add and remove items to track obtained items in game.
+//Also allows connecting/hosting through tcp to sync items with other players. Contains a SettingsForm and PlayersForm object in its instance variables
+
 using SuperSimpleTcp;
 using System.Text;
 
@@ -5,17 +9,18 @@ namespace OOTMPTracker
 {
     public partial class TrackerForm : Form
     {
-        public static String name;
+        public static String name; //Player name
         public static String ip;
-        public static String mode;
-        public static Dictionary<String, Item> items = new Dictionary<string, Item>();
-        private bool multiplayer = false;
+        public static String mode; //Host or client mode
+        public static Dictionary<String, Item> items = new Dictionary<string, Item>(); //Dictionary of all items in order to access them (item name, item object)
+        private bool multiplayer = false; //Multiplayer mode on/off, determines if server/client instructions are run
         private SettingsForm settingsForm;
         private PlayersForm playersForm;
-        private SimpleTcpServer server;
-        private SimpleTcpClient client;
-        private bool fullSync = false;
+        private SimpleTcpServer server; //Declares the server
+        private SimpleTcpClient client; //Declare the client
+        private bool fullSync = false; //Used for determing if an item sync was initiated
 
+        //Declare all items
         private ProgressiveItem sticks;
         private ProgressiveItem nuts;
         private ProgressiveItem bombs;
@@ -100,10 +105,11 @@ namespace OOTMPTracker
 
         private void TrackerForm_Load(object sender, EventArgs e)
         {
-            syncToolStripMenuItem.Enabled = false;
-            playersToolStripMenuItem.Enabled = false;
-            settingsForm = new SettingsForm();
+            syncToolStripMenuItem.Enabled = false; //Don't allow sync when not connected to another player
+            playersToolStripMenuItem.Enabled = false; //Don't allow view of PlayersForm when not in multiplayer
+            settingsForm = new SettingsForm(); //Instantiate SettingsForm object
 
+            //Instantiate all items
             sticks = new ProgressiveItem("Deku Stick Upgrade", true, sticksImg, 10, 30, 10, stickCount);
             nuts = new ProgressiveItem("Deku Nut Upgrade", true, nutsImg, 20, 40, 10, nutCount);
             bombs = new ProgressiveItem("Bomb Bag", false, bombsImg, 20, 40, 10, bombCount);
@@ -180,9 +186,11 @@ namespace OOTMPTracker
             spirit = new Item("Spirit Medallion", false, spiritImg);
         }
 
+        //For player who obtains the item, calls obtain method on given item, sets alertText for who/what was obtained, then sends data to players/host if in multiplayer mode
+        //Sending obtained data is in the format "playerName,itemName,obtained,progressive"
         public void update(Item item, String click)
         {
-            if (click.Equals("Left"))
+            if (click.Equals("Left")) //Add
             {
                 item.obtain(true);
                 if (multiplayer && item.progressive)
@@ -217,7 +225,7 @@ namespace OOTMPTracker
                 }
 
             }
-            else if (click.Equals("Right"))
+            else if (click.Equals("Right")) //Remove
             {
                 item.obtain(false);
                 if (multiplayer && item.progressive)
@@ -253,6 +261,7 @@ namespace OOTMPTracker
             }
         }
 
+        //For when the other players obtain and item, obtain whatever item it was, then update the alertText with what happened
         public void sync(String name, Item item, bool add)
         {
             if (add)
@@ -291,6 +300,7 @@ namespace OOTMPTracker
             }
         }
 
+        //Event handlers for each item, calls update function with the item that was clicked and which mouse button
         private void sticksImg_MouseDown(object sender, MouseEventArgs e)
         {
             update(sticks, e.Button.ToString());
@@ -626,17 +636,19 @@ namespace OOTMPTracker
             update(triforce, e.Button.ToString());
         }
 
+        //Event handler for when "Options" on the menu bar is clicked
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            settingsForm.ShowDialog();
+            settingsForm.ShowDialog(); //Show the SettingsForm
             try
             {
+                //On close, save input data into TrackerForm variables
                 name = settingsForm.name;
                 ip = settingsForm.ip + ":" + settingsForm.port;
-                if (settingsForm.mode.Equals("host") || settingsForm.mode.Equals("client"))
+                if (settingsForm.mode.Equals("host") || settingsForm.mode.Equals("client")) //If the form was close with the host or join button
                 {
-                    mode = settingsForm.mode;
-                    if (mode.Equals("host"))
+                    mode = settingsForm.mode; //Set mode
+                    if (mode.Equals("host")) //Server setup
                     {
                         server = new SimpleTcpServer(ip);
                         server.Events.ClientConnected += Events_ClientConnected;
@@ -684,7 +696,7 @@ namespace OOTMPTracker
                             alertText.Text = "";
                         }
                     }
-                    else
+                    else //Client setup
                     {
                         client = new SimpleTcpClient(ip);
                         client.Events.DataReceived += Events_ClientDataReceived;
@@ -724,15 +736,17 @@ namespace OOTMPTracker
             }
         }
 
+        //Event Handler for the host when client connects
         private void Events_ClientConnected(object sender, ConnectionEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
             {
                 syncToolStripMenuItem.Enabled = true;
             });
-            multiplayer = true;
+            multiplayer = true; //enable multiplayer mode
         }
 
+        //Event Handler for the client when connecting to server
         private void Events_Connected(object sender, ConnectionEventArgs e)
         {
             syncToolStripMenuItem.Enabled = true;
@@ -741,6 +755,7 @@ namespace OOTMPTracker
             MessageBox.Show("Connected to host");
         }
 
+        //Event Handler for the server when the client disconnects
         private void Events_ClientDisconnected(object sender, ConnectionEventArgs e)
         {
             String tempName = "";
@@ -749,7 +764,7 @@ namespace OOTMPTracker
                 syncToolStripMenuItem.Enabled = false;
                 if(playersForm.players.Count <= 1)
                 {
-                    multiplayer = false;
+                    multiplayer = false; //put it back into single player mode
                 }
                 alertText.Text = "";
                 tempName = playersForm.players[e.IpPort];
@@ -759,6 +774,7 @@ namespace OOTMPTracker
             MessageBox.Show(tempName + " disconnected");
         }
 
+        //Event Handler for client when disconnecting from server
         private void Events_Disconnected(object sender, ConnectionEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
@@ -771,7 +787,7 @@ namespace OOTMPTracker
             });
             MessageBox.Show("Disconnected from host");
         }
-
+        //Event Handler for when host recieves data
         private void Events_HostDataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
         {
             List<String> tempIps = new List<String>();
@@ -782,10 +798,10 @@ namespace OOTMPTracker
                 }
             }
 
-            if (fullSync)
+            if (fullSync) //For when expecting the next data to be fullSync data
             {
                 byte[] data = e.Data.ToArray();
-                for (int i = 0; i < items.Count; i++)
+                for (int i = 0; i < items.Count; i++) //Go through recieved byte array and update all item states
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
@@ -793,7 +809,7 @@ namespace OOTMPTracker
                         item.set(item.name, Convert.ToBoolean(data[i]), Convert.ToInt16(data[i + items.Count]), Convert.ToInt16(data[i + (items.Count * 2)]));
                     });
                 }
-                fullSync = false;
+                fullSync = false; //End fullSync listen
                 foreach (String s in tempIps)
                 {
                     server.Send(s, "SYNCING ALL ITEMS");
@@ -808,9 +824,9 @@ namespace OOTMPTracker
             {
                 String data = Encoding.UTF8.GetString(e.Data);
 
-                if (data.Equals("SYNCING ALL ITEMS"))
+                if (data.Equals("SYNCING ALL ITEMS")) //If this string is recieved, expect the next data to be an array with data for all items in byte form
                 {
-                    fullSync = true;
+                    fullSync = true; //Enable fullSync listening
                 }
                 else if (data.Split(",").Length == 1)
                 {
@@ -855,7 +871,7 @@ namespace OOTMPTracker
                 {
                     fullSync = true;
                 }
-                else
+                else //Otherwise, the data is for one item being obtained or removed, so parse the data, then call function to update it on the tracker
                 {
                     String[] splitData = data.Split(",");
                     String username = splitData[0];
@@ -866,20 +882,24 @@ namespace OOTMPTracker
             }
         }
 
-        private void syncToolStripMenuItem_Click(object sender, EventArgs e)
+        //Event Handler for when sync button is pressed on the menu bar
+        private void syncToolStripMenuItem_Click(object sender, EventArgs e) 
         {
+            //Array is formated where index i is obtained, index i + the amount of items is num, and index i + two of the amount of items is the loc.
+            //This comes out to be {obtained, (all the other obtains), num, (all the other nums), loc, (all the other loc)} in the array for the first item.
+            //Since items in the dictionary are the same for each player, the item it relates to is implied by the location in the array
             byte[] data = new byte[items.Count * 3];
             int i = 0;
             foreach (Item item in items.Values)
             {
-                data[i] = Convert.ToByte(item.obtained);
-                if (item.progressive && !item.name.Equals("Wallet Upgrade"))
+                data[i] = Convert.ToByte(item.obtained); //add obtained into array
+                if (item.progressive && !item.name.Equals("Wallet Upgrade")) //Progressive item case
                 {
-                    ProgressiveItem pItem = (ProgressiveItem)item;
-                    data[i + items.Count] = Convert.ToByte(pItem.num);
-                    data[i + (items.Count * 2)] = Convert.ToByte(pItem.loc);
+                    ProgressiveItem pItem = (ProgressiveItem)item; //Cast to progressive item to get other data
+                    data[i + items.Count] = Convert.ToByte(pItem.num); //add num to array
+                    data[i + (items.Count * 2)] = Convert.ToByte(pItem.loc); //add loc to array
                 }
-                else if(item.name.Equals("Wallet Upgrade"))
+                else if(item.name.Equals("Wallet Upgrade")) //Special case for wallet num since it is bigger than a byte so must be converted to a smaller number
                 {
                     ProgressiveItem pItem = (ProgressiveItem)item;
                     int num = 1;
@@ -904,14 +924,15 @@ namespace OOTMPTracker
                     data[i + items.Count] = Convert.ToByte(num);
                     data[i + (items.Count * 2)] = Convert.ToByte(pItem.loc);
                 }
-                else
+                else //If regular item, add 0 for num and loc to keep the spacing
                 {
                     data[i + items.Count] = 0;
                     data[i + (items.Count * 2)] = 0;
                 }
                 i++;
             }
-            if (mode.Equals("host"))
+            //Send syncing message, wait a second to make sure the other player for sure recieved it, then send all the data
+            if (mode.Equals("host")) 
             {
                 foreach (String clientIp in playersForm.players.Keys)
                 {
