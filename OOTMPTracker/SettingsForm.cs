@@ -20,7 +20,7 @@ namespace OOTMPTracker
         public String name { get; private set; } //Player name
         public String ip { get; private set; }
         public String port { get; private set; }
-        public String connections { get; private set; }
+        public String connections { get; private set; } //Max connections
         public SettingsForm()
         {
             InitializeComponent();

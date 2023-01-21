@@ -198,7 +198,7 @@ namespace OOTMPTracker
                     alertText.Text = name + " found a " + item.name;
                     if (mode.Equals("host"))
                     {
-                        foreach(String clientIp in playersForm.players.Keys)
+                        foreach(String clientIp in playersForm.players.Keys) //Host send data to each client ip
                         {
                             server.Send(clientIp, name + "," + item.name + "," + "true" + "," + "true");
                         }
@@ -213,7 +213,7 @@ namespace OOTMPTracker
                     alertText.Text = name + " found the " + item.name;
                     if (mode.Equals("host"))
                     {
-                        foreach (String clientIp in playersForm.players.Keys)
+                        foreach (String clientIp in playersForm.players.Keys) //Host send data to each client ip
                         {
                             server.Send(clientIp, name + "," + item.name + "," + "true" + "," + "false");
                         }
@@ -659,8 +659,8 @@ namespace OOTMPTracker
                         try
                         {
                             server.Settings.MaxConnections = Int16.Parse(settingsForm.connections);
-                            playersForm = new PlayersForm(name, ip, server.Settings.MaxConnections);
-                            playersToolStripMenuItem.Enabled = true;
+                            playersForm = new PlayersForm(name, ip, server.Settings.MaxConnections); //Instantiate the PlayersForm
+                            playersToolStripMenuItem.Enabled = true; //Enable viewing the PlayersForm
                             server.Start();
                         }
                         catch (ArgumentException)
@@ -755,7 +755,7 @@ namespace OOTMPTracker
             MessageBox.Show("Connected to host");
         }
 
-        //Event Handler for the server when the client disconnects
+        //Event Handler for the server when a client disconnects
         private void Events_ClientDisconnected(object sender, ConnectionEventArgs e)
         {
             String tempName = "";
@@ -767,6 +767,7 @@ namespace OOTMPTracker
                     multiplayer = false; //put it back into single player mode
                 }
                 alertText.Text = "";
+                //get player that disconnected, remove them from the list, and notify the host
                 tempName = playersForm.players[e.IpPort];
                 playersForm.players.Remove(e.IpPort);
                 playersForm.updateList();
@@ -787,10 +788,11 @@ namespace OOTMPTracker
             });
             MessageBox.Show("Disconnected from host");
         }
-        //Event Handler for when host recieves data
+        //Event Handler for when host recieves data, passes off that data to other clients as well
         private void Events_HostDataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
         {
             List<String> tempIps = new List<String>();
+            //Generate list of clients who did not send the data and are not this player. This is so client data goes to other clients
             foreach (String s in playersForm.players.Keys)
             {
                 if (!s.Equals(ip) && !s.Equals(e.IpPort)){
@@ -828,13 +830,13 @@ namespace OOTMPTracker
                 {
                     fullSync = true; //Enable fullSync listening
                 }
-                else if (data.Split(",").Length == 1)
+                else if (data.Split(",").Length == 1) //If a player name is sent, it means a player joined, so add them to the list and notify the host
                 {
                     playersForm.players.Add(e.IpPort, data);
                     playersForm.updateList();
                     MessageBox.Show(data + " connected");
                 }
-                else
+                else //Otherwise, the data is for one item being obtained or removed, so parse the data, then call function to update it on the tracker
                 {
                     String[] splitData = data.Split(",");
                     String username = splitData[0];
@@ -848,12 +850,13 @@ namespace OOTMPTracker
             }
         }
 
+        //Event Handler for when client recieves data
         private void Events_ClientDataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
         {
-            if (fullSync)
+            if (fullSync) //For when expecting the next data to be fullSync data
             {
                 byte[] data = e.Data.ToArray();
-                for (int i = 0; i < items.Count; i++)
+                for (int i = 0; i < items.Count; i++) //Go through recieved byte array and update all item states
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
@@ -861,15 +864,15 @@ namespace OOTMPTracker
                         item.set(item.name, Convert.ToBoolean(data[i]), Convert.ToInt16(data[i + items.Count]), Convert.ToInt16(data[i + (items.Count * 2)]));
                     });
                 }
-                fullSync = false;
+                fullSync = false; //End fullSync listen
             }
             else
             {
                 String data = Encoding.UTF8.GetString(e.Data);
 
-                if (data.Equals("SYNCING ALL ITEMS"))
+                if (data.Equals("SYNCING ALL ITEMS")) //If this string is recieved, expect the next data to be an array with data for all items in byte form
                 {
-                    fullSync = true;
+                    fullSync = true; //Enable fullSync listening
                 }
                 else //Otherwise, the data is for one item being obtained or removed, so parse the data, then call function to update it on the tracker
                 {
@@ -952,6 +955,7 @@ namespace OOTMPTracker
             }
         }
 
+        //Event handler to open PlayersForm when players button on menu bar is pressed
         private void playersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             playersForm.updateList();
