@@ -101,10 +101,33 @@ namespace OOTMPTracker
         public TrackerForm()
         {
             InitializeComponent();
+            //Set Text Parents to make their backgrounds transparent
+            zeldaText.Parent = zeldaImg;
+            zeldaText.Location = zeldaImg.PointToClient(this.PointToScreen(zeldaText.Location));
+
+            eponaText.Parent = eponaImg;
+            eponaText.Location = eponaImg.PointToClient(this.PointToScreen(eponaText.Location));
+
+            sariaText.Parent = sariaImg;
+            sariaText.Location = sariaImg.PointToClient(this.PointToScreen(sariaText.Location));
+
+            sunText.Parent = sunImg;
+            sunText.Location = sunImg.PointToClient(this.PointToScreen(sunText.Location));
+
+            timeText.Parent = timeImg;
+            timeText.Location = timeImg.PointToClient(this.PointToScreen(timeText.Location));
+
+            stormsText.Parent = stormsImg;
+            stormsText.Location = stormsImg.PointToClient(this.PointToScreen(stormsText.Location));
+
+            scarecrowText.Parent = scarecrowImg;
+            scarecrowText.Location = scarecrowImg.PointToClient(this.PointToScreen(scarecrowText.Location));
         }
 
         private void TrackerForm_Load(object sender, EventArgs e)
         {
+            
+
             syncToolStripMenuItem.Enabled = false; //Don't allow sync when not connected to another player
             settingsForm = new SettingsForm(); //Instantiate SettingsForm object
 
