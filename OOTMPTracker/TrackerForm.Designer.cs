@@ -114,6 +114,13 @@
             this.alertText = new System.Windows.Forms.Label();
             this.heartPieceCount = new System.Windows.Forms.Label();
             this.heartCount = new System.Windows.Forms.Label();
+            this.zeldaText = new System.Windows.Forms.Label();
+            this.eponaText = new System.Windows.Forms.Label();
+            this.sariaText = new System.Windows.Forms.Label();
+            this.sunText = new System.Windows.Forms.Label();
+            this.timeText = new System.Windows.Forms.Label();
+            this.stormsText = new System.Windows.Forms.Label();
+            this.scarecrowText = new System.Windows.Forms.Label();
             this.playersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sticksImg)).BeginInit();
@@ -1205,6 +1212,83 @@
             this.heartCount.TabIndex = 134;
             this.heartCount.Text = "1";
             // 
+            // zeldaText
+            // 
+            this.zeldaText.AutoSize = true;
+            this.zeldaText.BackColor = System.Drawing.Color.Transparent;
+            this.zeldaText.ForeColor = System.Drawing.Color.White;
+            this.zeldaText.Location = new System.Drawing.Point(23, 231);
+            this.zeldaText.Name = "zeldaText";
+            this.zeldaText.Size = new System.Drawing.Size(20, 15);
+            this.zeldaText.TabIndex = 135;
+            this.zeldaText.Text = "ZL";
+            // 
+            // eponaText
+            // 
+            this.eponaText.AutoSize = true;
+            this.eponaText.BackColor = System.Drawing.Color.Transparent;
+            this.eponaText.ForeColor = System.Drawing.Color.White;
+            this.eponaText.Location = new System.Drawing.Point(66, 231);
+            this.eponaText.Name = "eponaText";
+            this.eponaText.Size = new System.Drawing.Size(20, 15);
+            this.eponaText.TabIndex = 136;
+            this.eponaText.Text = "EP";
+            // 
+            // sariaText
+            // 
+            this.sariaText.AutoSize = true;
+            this.sariaText.BackColor = System.Drawing.Color.Transparent;
+            this.sariaText.ForeColor = System.Drawing.Color.White;
+            this.sariaText.Location = new System.Drawing.Point(108, 231);
+            this.sariaText.Name = "sariaText";
+            this.sariaText.Size = new System.Drawing.Size(21, 15);
+            this.sariaText.TabIndex = 137;
+            this.sariaText.Text = "SA";
+            // 
+            // sunText
+            // 
+            this.sunText.AutoSize = true;
+            this.sunText.BackColor = System.Drawing.Color.Transparent;
+            this.sunText.ForeColor = System.Drawing.Color.White;
+            this.sunText.Location = new System.Drawing.Point(152, 231);
+            this.sunText.Name = "sunText";
+            this.sunText.Size = new System.Drawing.Size(21, 15);
+            this.sunText.TabIndex = 138;
+            this.sunText.Text = "SU";
+            // 
+            // timeText
+            // 
+            this.timeText.AutoSize = true;
+            this.timeText.BackColor = System.Drawing.Color.Transparent;
+            this.timeText.ForeColor = System.Drawing.Color.White;
+            this.timeText.Location = new System.Drawing.Point(191, 231);
+            this.timeText.Name = "timeText";
+            this.timeText.Size = new System.Drawing.Size(24, 15);
+            this.timeText.TabIndex = 139;
+            this.timeText.Text = "TM";
+            // 
+            // stormsText
+            // 
+            this.stormsText.AutoSize = true;
+            this.stormsText.BackColor = System.Drawing.Color.Transparent;
+            this.stormsText.ForeColor = System.Drawing.Color.White;
+            this.stormsText.Location = new System.Drawing.Point(239, 231);
+            this.stormsText.Name = "stormsText";
+            this.stormsText.Size = new System.Drawing.Size(19, 15);
+            this.stormsText.TabIndex = 140;
+            this.stormsText.Text = "ST";
+            // 
+            // scarecrowText
+            // 
+            this.scarecrowText.AutoSize = true;
+            this.scarecrowText.BackColor = System.Drawing.Color.Transparent;
+            this.scarecrowText.ForeColor = System.Drawing.Color.White;
+            this.scarecrowText.Location = new System.Drawing.Point(280, 231);
+            this.scarecrowText.Name = "scarecrowText";
+            this.scarecrowText.Size = new System.Drawing.Size(21, 15);
+            this.scarecrowText.TabIndex = 141;
+            this.scarecrowText.Text = "SC";
+            // 
             // playersToolStripMenuItem
             // 
             this.playersToolStripMenuItem.Name = "playersToolStripMenuItem";
@@ -1218,6 +1302,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(392, 388);
+            this.Controls.Add(this.scarecrowText);
+            this.Controls.Add(this.stormsText);
+            this.Controls.Add(this.timeText);
+            this.Controls.Add(this.sunText);
+            this.Controls.Add(this.sariaText);
+            this.Controls.Add(this.eponaText);
+            this.Controls.Add(this.zeldaText);
             this.Controls.Add(this.heartCount);
             this.Controls.Add(this.heartPieceCount);
             this.Controls.Add(this.alertText);
@@ -1468,6 +1559,13 @@
         private ToolStripMenuItem syncToolStripMenuItem;
         private Label heartPieceCount;
         private Label heartCount;
+        private Label zeldaText;
+        private Label eponaText;
+        private Label sariaText;
+        private Label sunText;
+        private Label timeText;
+        private Label stormsText;
+        private Label scarecrowText;
         private ToolStripMenuItem playersToolStripMenuItem;
     }
 }
